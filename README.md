@@ -38,6 +38,6 @@ A responsive and interactive **World Clock** web application that displays the c
 ---
 
 ## 📸 Screenshots
-*(Add your screenshots here)*
-
 Example:
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/44c9cb50-61a7-4352-8f79-29878354fee5" />
+
