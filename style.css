@@ -1,0 +1,369 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 280px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #fff;
+    text-align: center;
+}
+
+.popular-locations {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.location-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.location-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.location-item.active {
+    background: rgba(102, 126, 234, 0.3);
+    border-color: #667eea;
+}
+
+.location-name {
+    display: block;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.location-time {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-weight: 300;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(15px);
+    border-radius: 24px;
+    padding: 3rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 100%;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Location Input Styles */
+.location-input {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+.location-input input {
+    flex: 1;
+    max-width: 300px;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.location-input input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.location-input input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+.location-input button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.location-input button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.location-input button:active {
+    transform: translateY(0);
+}
+
+/* Current Location Display */
+.current-location {
+    margin-bottom: 2rem;
+}
+
+.current-location h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #fff;
+    opacity: 0.9;
+}
+
+/* Clock Container */
+.clock-container {
+    margin-bottom: 2rem;
+}
+
+.clock {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    margin: 0 auto;
+    box-shadow: 
+        0 0 0 4px rgba(255, 255, 255, 0.1),
+        inset 0 0 0 3px rgba(255, 255, 255, 0.1),
+        0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Clock Numbers */
+.number {
+    position: absolute;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    transform-origin: center;
+}
+
+.number-1 { top: 10%; right: 25%; }
+.number-2 { top: 25%; right: 10%; }
+.number-3 { top: 50%; right: 5%; transform: translateY(-50%); }
+.number-4 { bottom: 25%; right: 10%; }
+.number-5 { bottom: 10%; right: 25%; }
+.number-6 { bottom: 5%; left: 50%; transform: translateX(-50%); }
+.number-7 { bottom: 10%; left: 25%; }
+.number-8 { bottom: 25%; left: 10%; }
+.number-9 { top: 50%; left: 5%; transform: translateY(-50%); }
+.number-10 { top: 25%; left: 10%; }
+.number-11 { top: 10%; left: 25%; }
+.number-12 { top: 5%; left: 50%; transform: translateX(-50%); }
+
+/* Clock Hands */
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    border-radius: 4px;
+    transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hour {
+    width: 6px;
+    height: 80px;
+    background: linear-gradient(to top, #fff, #ddd);
+    transform: translateX(-50%);
+    border-radius: 3px;
+}
+
+.minute {
+    width: 4px;
+    height: 110px;
+    background: linear-gradient(to top, #667eea, #5a6fd8);
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.second {
+    width: 2px;
+    height: 130px;
+    background: linear-gradient(to top, #ff6b6b, #ee5a52);
+    transform: translateX(-50%);
+    border-radius: 1px;
+}
+
+.center-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Time Display */
+.time-display {
+    text-align: center;
+}
+
+.digital-time {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-family: 'Inter', monospace;
+    letter-spacing: 2px;
+}
+
+.date-display {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1rem;
+    }
+    
+    .popular-locations {
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 0.5rem;
+    }
+    
+    .location-item {
+        min-width: 120px;
+        text-align: center;
+    }
+    
+    .main-content {
+        padding: 1rem;
+    }
+    
+    .container {
+        padding: 2rem 1rem;
+    }
+    
+    .clock {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .location-input {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .location-input input,
+    .location-input button {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+/* Loading Animation */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}

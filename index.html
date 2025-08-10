@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Clock</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar with frequently asked locations -->
+        <div class="sidebar">
+            <h2>Popular Locations</h2>
+            <div class="popular-locations">
+                <div class="location-item" data-timezone="America/New_York">
+                    <span class="location-name">New York</span>
+                    <span class="location-time" id="ny-time">--:--</span>
+                </div>
+                <div class="location-item" data-timezone="Europe/London">
+                    <span class="location-name">London</span>
+                    <span class="location-time" id="london-time">--:--</span>
+                </div>
+                <div class="location-item" data-timezone="Asia/Tokyo">
+                    <span class="location-name">Tokyo</span>
+                    <span class="location-time" id="tokyo-time">--:--</span>
+                </div>
+                <div class="location-item" data-timezone="Europe/Paris">
+                    <span class="location-name">Paris</span>
+                    <span class="location-time" id="paris-time">--:--</span>
+                </div>
+                <div class="location-item" data-timezone="Asia/Kolkata">
+                    <span class="location-name">Mumbai</span>
+                    <span class="location-time" id="mumbai-time">--:--</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="main-content">
+            <div class="container">
+                <h1>World Clock</h1>
+                
+                <!-- Location Input -->
+                <div class="location-input">
+                    <input type="text" id="location" placeholder="Enter city or country (e.g., New York, London, Tokyo)">
+                    <button id="getTimeBtn">Get Time</button>
+                </div>
+
+                <!-- Current Location Display -->
+                <div class="current-location" id="currentLocation">
+                    <h2 id="locationName">Select a location</h2>
+                </div>
+
+                <!-- Clock Display -->
+                <div class="clock-container">
+                    <div class="clock">
+                        <!-- Clock numbers -->
+                        <div class="number number-1">1</div>
+                        <div class="number number-2">2</div>
+                        <div class="number number-3">3</div>
+                        <div class="number number-4">4</div>
+                        <div class="number number-5">5</div>
+                        <div class="number number-6">6</div>
+                        <div class="number number-7">7</div>
+                        <div class="number number-8">8</div>
+                        <div class="number number-9">9</div>
+                        <div class="number number-10">10</div>
+                        <div class="number number-11">11</div>
+                        <div class="number number-12">12</div>
+                        
+                        <!-- Clock hands -->
+                        <div class="hand hour" id="hourHand"></div>
+                        <div class="hand minute" id="minuteHand"></div>
+                        <div class="hand second" id="secondHand"></div>
+                        <div class="center-dot"></div>
+                    </div>
+                </div>
+
+                <!-- Digital Time Display -->
+                <div class="time-display">
+                    <div class="digital-time" id="digitalTime">--:--:--</div>
+                    <div class="date-display" id="dateDisplay">--</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
